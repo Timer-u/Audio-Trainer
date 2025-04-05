@@ -1,18 +1,12 @@
-/* style.css */
 :root {
-    /* 日系二次元主题色 */
-    --primary-color: #FF9EB5; /* 樱花粉 */
-    --secondary-color: #7BD3EA; /* 水色 */
-    --tertiary-color: #F6D6E6; /* 浅粉 */
-    --accent-color: #E2F0CB; /* 若竹色 */
-    
-    /* Material 3中性色 */
+    --primary-color: #FF9EB5;
+    --secondary-color: #7BD3EA;
+    --tertiary-color: #F6D6E6;
+    --accent-color: #E2F0CB;
     --background: #FFF9FB;
     --surface: #ffffff;
     --outline: #E0DEE5;
     --text-primary: #2D2A32;
-    
-    /* 新增渐变背景 */
     --gradient-bg: linear-gradient(135deg, #FFF0F5 0%, #F0FFFF 100%);
 }
 
@@ -34,6 +28,83 @@ body {
     max-width: 800px;
     margin: 2rem auto;
     padding: 0 1rem;
+}
+
+/* 状态栏样式 */
+.status-bar {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.status-indicator {
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    background: rgba(125, 211, 234, 0.2);
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.status-active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* 文件上传增强 */
+.file-upload {
+    display: block;
+    border: 2px dashed var(--primary-color);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 158, 181, 0.05);
+    transition: all 0.3s ease;
+}
+
+.file-name {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    word-break: break-all;
+}
+
+.upload-text {
+    transition: all 0.3s ease;
+}
+
+.file-upload:hover .upload-text {
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+/* 速度值显示 */
+.speed-value {
+    text-align: center;
+    font-family: 'DotGothic16';
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* 按钮点击反馈 */
+.fab:active {
+    transform: scale(0.95) rotate(-8deg);
+    transition: 0.1s;
+}
+
+.preset-btn.active {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
 }
 
 /* 卡片立体化改造 */
