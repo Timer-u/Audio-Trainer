@@ -1,85 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>高考听力训练器</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=DotGothic16&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=DotGothic16&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="status-bar">
-        <div id="processStatus" class="status-indicator"></div>
-        <div id="lockStatus" class="status-indicator" style="display: none;">
-            <i class="material-icons">lock</i>
-            <span>控制面板已锁定</span>
-        </div>
+      <div id="processStatus" class="status-indicator"></div>
+      <div id="lockStatus" class="status-indicator" style="display: none">
+        <i class="material-icons">lock</i>
+        <span>控制面板已锁定</span>
+      </div>
     </div>
 
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <i class="material-icons">library_music</i>
-                <span>选择听力音频</span>
-            </div>
-            <div class="card-content">
-                <label class="file-upload">
-                    <input type="file" id="audioFile" accept="audio/*">
-                    <span class="upload-text">点击上传文件</span>
-                    <span id="fileName" class="file-name"></span>
-                </label>
-            </div>
+      <div class="card">
+        <div class="card-header">
+          <i class="material-icons">library_music</i>
+          <span>选择听力音频</span>
         </div>
-
-        <div class="card">
-            <div class="card-header">
-                <i class="material-icons">tune</i>
-                <span>训练设置</span>
-            </div>
-            <div class="card-content">
-                <div class="control-group">
-                    <div class="control-label">
-                        <i class="material-icons">speed</i>
-                        播放速度
-                    </div>
-                    <div class="speed-control">
-                        <div class="speed-value">
-                            <span id="currentSpeed">1x</span>
-                        </div>
-                        <input type="range" id="speed" min="0.5" max="3" step="0.1" value="1">
-                        <div class="speed-presets">
-                            <button class="preset-btn" data-speed="0.8">0.8x</button>
-                            <button class="preset-btn active" data-speed="1">1x</button>
-                            <button class="preset-btn" data-speed="1.2">1.2x</button>
-                            <button class="preset-btn" data-speed="1.5">1.5x</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="switch-group">
-                    <label class="switch">
-                        <input type="checkbox" id="reduceSilence">
-                        <span class="slider"></span>
-                        <span class="label-text">智能静音压缩</span>
-                    </label>
-                    <label class="switch">
-                        <input type="checkbox" id="debugMode">
-                        <span class="slider"></span>
-                        <span class="label-text">调试模式</span>
-                    </label>
-                </div>
-            </div>
+        <div class="card-content">
+          <label class="file-upload">
+            <input type="file" id="audioFile" accept="audio/*" />
+            <span class="upload-text">点击上传文件</span>
+            <span id="fileName" class="file-name"></span>
+          </label>
         </div>
+      </div>
 
-        <div class="play-control">
-            <button id="playBtn" class="fab">
-                <i class="material-icons">play_arrow</i>
-            </button>
-            <div id="timeDisplay" class="time-display">00:00 / 00:00</div>
+      <div class="card">
+        <div class="card-header">
+          <i class="material-icons">tune</i>
+          <span>训练设置</span>
         </div>
+        <div class="card-content">
+          <div class="control-group">
+            <div class="control-label">
+              <i class="material-icons">speed</i>
+              播放速度
+            </div>
+            <div class="speed-control">
+              <div class="speed-value">
+                <span id="currentSpeed">1x</span>
+              </div>
+              <input
+                type="range"
+                id="speed"
+                min="0.5"
+                max="3"
+                step="0.1"
+                value="1"
+              />
+              <div class="speed-presets">
+                <button class="preset-btn" data-speed="0.8">0.8x</button>
+                <button class="preset-btn active" data-speed="1">1x</button>
+                <button class="preset-btn" data-speed="1.2">1.2x</button>
+                <button class="preset-btn" data-speed="1.5">1.5x</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="switch-group">
+            <label class="switch">
+              <input type="checkbox" id="reduceSilence" />
+              <span class="slider"></span>
+              <span class="label-text">智能静音压缩</span>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="debugMode" />
+              <span class="slider"></span>
+              <span class="label-text">调试模式</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="play-control">
+        <button id="playBtn" class="fab">
+          <i class="material-icons">play_arrow</i>
+        </button>
+        <div id="timeDisplay" class="time-display">00:00 / 00:00</div>
+      </div>
     </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
