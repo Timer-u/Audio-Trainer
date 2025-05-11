@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- 装饰背景元素 -->
+    <div class="decoration-bubble"></div>
+
     <div class="status-bar">
       <div id="processStatus" class="status-indicator"></div>
       <div id="lockStatus" class="status-indicator" style="display: none">
@@ -24,6 +27,10 @@
     </div>
 
     <div class="container">
+      <!-- 标题 -->
+      <header class="app-header">
+        <h1 class="app-title">高考听力训练器</h1>
+      </header>
       <div class="card">
         <div class="card-header">
           <i class="material-icons">library_music</i>
@@ -85,10 +92,14 @@
         </div>
       </div>
 
+      <!-- 播放控制区新增进度条 -->
       <div class="play-control">
         <button id="playBtn" class="fab">
           <i class="material-icons">play_arrow</i>
         </button>
+        <div class="progress-container">
+          <div class="progress-bar" id="audioProgress"></div>
+        </div>
         <div id="timeDisplay" class="time-display">00:00 / 00:00</div>
       </div>
     </div>

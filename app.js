@@ -39,12 +39,12 @@ class AudioTrainer {
     });
 
     document.querySelectorAll(".preset-btn").forEach((btn) => {
-      btn.addEventListener("click", function () {
+      btn.addEventListener("click", (e) => {
         document
           .querySelectorAll(".preset-btn")
           .forEach((b) => b.classList.remove("active"));
-        this.classList.add("active");
-        const speed = parseFloat(this.dataset.speed);
+        e.currentTarget.classList.add("active");
+        const speed = parseFloat(e.currentTarget.dataset.speed);
         this.audio.playbackRate = speed;
         document.getElementById("speed").value = speed;
         document.getElementById("currentSpeed").textContent = `${speed}x`;
@@ -120,6 +120,12 @@ class AudioTrainer {
       return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
     };
     display.textContent = `${format(this.audio.currentTime)} / ${format(this.audio.duration)}`;
+    if (this.audio.duration > 0) {
+      const progressPercent =
+        (this.audio.currentTime / this.audio.duration) * 100;
+      document.getElementById("audioProgress").style.width =
+        `${progressPercent}%`;
+    }
   }
 }
 

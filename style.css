@@ -8,6 +8,7 @@
   --outline: #e0dee5;
   --text-primary: #2d2a32;
   --gradient-bg: linear-gradient(135deg, #fff0f5 0%, #f0ffff 100%);
+  --highlight-color: #fcda9a;
 }
 
 * {
@@ -28,6 +29,58 @@ body {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
+}
+
+/* 装饰气泡 */
+.decoration-bubble {
+  position: fixed;
+  bottom: -100px;
+  left: 20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 158, 181, 0.1),
+    rgba(125, 211, 234, 0.1)
+  );
+  filter: blur(40px);
+  z-index: -1;
+  animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-100px) rotate(10deg);
+  }
+}
+
+/* 标题样式 */
+.app-header {
+  text-align: center;
+  padding: 1rem 0 2rem;
+}
+
+.app-title {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 1.8rem;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* 状态栏样式 */
@@ -352,4 +405,24 @@ input:checked + .slider:before {
 .label-text {
   margin-left: 1rem;
   vertical-align: middle;
+}
+/* 进度条样式 */
+.progress-container {
+  width: 180px;
+  height: 6px;
+  background: rgba(125, 211, 234, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  width: 0%;
+  transition: width 0.2s ease;
 }
